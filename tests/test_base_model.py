@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import unittest
 from models.base_model import BaseModel
 
@@ -43,4 +45,3 @@ class TestBaseModel(unittest.TestCase):
                          model.created_at.isoformat())
         self.assertEqual(model_dictionary['updated_at'],
                          model.updated_at.isoformat())
-
