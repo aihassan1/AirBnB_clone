@@ -13,14 +13,21 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-        if len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == "__class__":
-                    pass
+        # if len(kwargs) != 0:
+        #     for key, value in kwargs.items():
+        #         if key == "__class__":
+        #             pass
 
-                if key == "created_at" or key == "updated_at":
-                    time_format = "%Y-%m-%dT%H:%M:%S.%f"
-                    setattr(self, key, datetime.strptime(value, time_format))
+        #         if key == "created_at" or key == "updated_at":
+        #             time_format = "%Y-%m-%dT%H:%M:%S.%f"
+        #             setattr(self, key, datetime.strptime(value, time_format))
+
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    self.__dict__[k] = datetime.strptime(v, tform)
+                else:
+                    self.__dict__[k] = v    
 
     def __str__(self):
         """Return a string representation of the object """
@@ -49,4 +56,3 @@ class BaseModel:
         the_dict['updated_at'] = self.updated_at.isoformat()
 
         return the_dict
-
