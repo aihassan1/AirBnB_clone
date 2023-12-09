@@ -16,11 +16,19 @@ FileStorage:
         return __objects
 
     new(self, obj):
-        sets in __objects the obj with key <obj class name>.id
+        sets in __objects the obj with
+        ---> (key-format) <obj class name>.id
+
 
     save(self):
         serialize -> __objects
         save at __file_path
+        //algo
+        var1 (dictionary)
+        loop in __objects
+            convert each object to dict
+            and add it to var1
+        store var1 in json file
 
     reload(self):
         if the JSON file (__file_path) exists
@@ -28,3 +36,14 @@ FileStorage:
         else
             do nothing 
         ###(If the file doesn’t exist, no exception should be raised)###
+        //algo
+        try:
+            open file
+            data <dictionary> = load
+            for key, value in data
+                creat opject from data
+                save opject in __objects
+
+
+        except NotFoundFile:
+            pass
