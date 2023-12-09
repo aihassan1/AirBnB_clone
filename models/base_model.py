@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-import uuid
+
 import datetime
+import uuid
 
 
 class BaseModel:
@@ -14,7 +15,7 @@ class BaseModel:
                 if key != "__class__":
                     setattr(self, key, value)
 
-                if key in ["created_at", "updated_at"]:
+                if key == "created_at" or key == "updated_at":
                     setattr(
                         self, key,
                         datetime.datetime.strptime(value,
@@ -30,7 +31,10 @@ class BaseModel:
                                       self.__dict__))
 
     def save(self):
-        """updates the public instance attribute updated_at with the current datetime """
+        """
+        updates the public instance attribute
+        updated_at with the current datetime
+        """
         self.updated_at = datetime.datetime.now()
 
     def to_dict(self):

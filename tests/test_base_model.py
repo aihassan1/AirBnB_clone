@@ -26,7 +26,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict_method(self):
         """
-        Test if the to_dict method returns a dictionary with expected keys and values
+        Test if the to_dict method returns a
+        dictionary with expected keys and values
         """
         model = BaseModel()
         model_dictionary = model.to_dict()
