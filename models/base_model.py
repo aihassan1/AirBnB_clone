@@ -6,12 +6,15 @@ import datetime
 class BaseModel:
     """ Base class for other classes """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         """the BaseClass constructor"""
 
-        
+        # if kwargs:
+        #     for key, value in kwargs.items():
+        #         if key != "__class__":
+        #             setattr(self, key, value)
 
-
+    
 
         
         self.id = str(uuid.uuid4())

@@ -3,14 +3,15 @@ from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
+
     def test___str__method(self):
         """
         Test if the __str__ method returns the expected string representation
         """
         model = BaseModel()
-        expected_string = "[BaseModel] ({}) {}".format(model.id, model.__dict__)
+        expected_string = "[BaseModel] ({}) {}".format(model.id,
+                                                       model.__dict__)
         self.assertEqual(str(model), expected_string)
-
 
     def test_save_method(self):
         """
@@ -19,7 +20,7 @@ class TestBaseModel(unittest.TestCase):
         model = BaseModel()
         initial_updated_at_time = model.updated_at
         model.save()
-        self.assertNotEqual(initial_updated_at_time, model.updated_at) 
+        self.assertNotEqual(initial_updated_at_time, model.updated_at)
 
     def test_to_dict_method(self):
         """
@@ -33,10 +34,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('__class__', model_dictionary)
         self.assertIn('created_at', model_dictionary)
         self.assertIn('updated_at', model_dictionary)
-        
+
         # Check if the values are correct
         self.assertEqual(model_dictionary['id'], model.id)
-        self.assertEqual(model_dictionary['__class__'], model.__class__.__name__)
-        self.assertEqual(model_dictionary['created_at'], model.created_at.isoformat())
-        self.assertEqual(model_dictionary['updated_at'], model.updated_at.isoformat())
-        
+        self.assertEqual(model_dictionary['__class__'],
+                         model.__class__.__name__)
+        self.assertEqual(model_dictionary['created_at'],
+                         model.created_at.isoformat())
+        self.assertEqual(model_dictionary['updated_at'],
+                         model.updated_at.isoformat())
+
