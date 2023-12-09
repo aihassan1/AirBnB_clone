@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""base model class definition """
 import uuid
 from datetime import datetime
 
@@ -49,3 +49,4 @@ class BaseModel:
         the_dict['updated_at'] = self.updated_at.isoformat()
 
         return the_dict
+
