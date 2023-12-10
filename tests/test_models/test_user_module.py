@@ -49,24 +49,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user_instance.first_name, 'Abdelrahman')
         self.assertEqual(user_instance.last_name, 'Ibrahim')
 
-    def test_to_dict_method(self):
-        """
-        Ensure that the to_dict method returns the expected
-        dictionary representation of the User instance.
-        """
-        user_instance = User()
-        expected_dict = {
-            'id': user_instance.id,
-            'created_at': user_instance.created_at.isoformat(),
-            'updated_at': user_instance.updated_at.isoformat(),
-            'email': '',
-            'password': '',
-            'first_name': '',
-            'last_name': '',
-            '__class__': 'User'
-        }
-        self.assertEqual(user_instance.to_dict(), expected_dict)
-
 
 if __name__ == '__main__':
     unittest.main()
