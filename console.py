@@ -3,13 +3,14 @@
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """WELCOME TO MY CONSOLE"""
 
     prompt = "(hbnb) "
-    bnb_cls = {"BaseModel": BaseModel}
+    bnb_cls = {"BaseModel": BaseModel, "User": User}
 
     def do_quit(self, arg):
         """Quit from command line interpreter"""
