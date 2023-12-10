@@ -46,3 +46,8 @@ class TestBaseModel(unittest.TestCase):
                          model.created_at.isoformat())
         self.assertEqual(model_dictionary['updated_at'],
                          model.updated_at.isoformat())
+
+
+
+if __name__ == '__main__':
+    unittest.main()
