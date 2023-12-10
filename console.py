@@ -7,7 +7,7 @@ class HBNBCommand(cmd.Cmd):
     """WELCOME TO MY CONSOLE"""
 
     prompt = "(hbnb) "
-    
+
     def do_quit(self, arg):
         """Quit from command line interpreter"""
         quit()
