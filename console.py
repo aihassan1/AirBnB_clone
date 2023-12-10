@@ -27,11 +27,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """
-        Creates a new instance of BaseModel
-        saves it (to the JSON file) and prints the id
+            Creates a new instance of BaseModel
+            saves it (to the JSON file) and prints the id
         """
-        line = self.parseline(line)
-        cls_name = line[0]
+        args = self.parseline(line)
+        cls_name = args[0]
         if cls_name is None:
             print("** class name missing **")
         elif cls_name not in HBNBCommand.bnb_cls:
@@ -40,6 +40,28 @@ class HBNBCommand(cmd.Cmd):
             obj = HBNBCommand.bnb_cls[cls_name]()
             print(obj.id)
             storage.save()
+    def do_show(self, line):
+        """
+            Prints the string representation
+            of an instance based on the class name and id.
+        """
+        args = self.parseline(line)
+        cls_name = args[0]
+        inst_id = args[1]
+
+        if cls_name is None:
+            print("** class name missing **")
+        elif cls_name not in HBNBCommand.bnb_cls:
+            print("** class doesn't exist **")
+        elif inst_id is None or id == "":
+            print("** instance id missing **")
+        else:
+            inst_key = f"{cls_name}.{inst_id}"
+            obj = storage.all().get(inst_key)
+            if obj is None:
+                print("** no instance found **")
+            else:
+                print(obj)        
 
 
 if __name__ == '__main__':
