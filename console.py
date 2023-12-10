@@ -7,7 +7,7 @@ class HBNBCommand(cmd.Cmd):
     """WELCOME TO MY CONSOLE"""
 
     prompt = "(hbnb) "
-    
+
     def do_quit(self, arg):
         """Quit from command line interpreter"""
         quit()
@@ -15,6 +15,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """End of file"""
         quit()
+
+    def emptyline(self):
+        """if empty line do nothing"""
+        pass
 
 
 if __name__ == '__main__':
