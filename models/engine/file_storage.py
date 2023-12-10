@@ -2,6 +2,7 @@
 
 """Define FileStorage class that that make the projects persistent"""
 from json import load, dump
+from models.base_model import BaseModel
 
 class FileStorage:
     """
@@ -18,10 +19,12 @@ class FileStorage:
     __file_path = "AirBnB_Storage.json"
     __objects = {}
 
+    # Complete
     def all(self):
         "return __objects"
         return FileStorage.__objects
 
+    # Complete
     def new(self, obj):
         """set new obj inside __objects"""
         K_format = f"{obj.__class__.__name__}.{obj.id}"
@@ -31,7 +34,7 @@ class FileStorage:
         """save __objects in __file_path"""
         obj_dict_form = {}
 
-        for key, value_obj in FileStorage.__objects.items:
+        for key, value_obj in FileStorage.__objects.items():
             obj_dict_form[key] = value_obj.to_dict()
 
         with open(FileStorage.__file_path, 'w', encoding="utf-8") as Jfile:
@@ -39,12 +42,13 @@ class FileStorage:
 
     def reload(self):
         """load __objects from __file_path"""
+        classes = {'BaseModel': BaseModel}
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as Jfile:
                 data = load(Jfile)
-                for key, value in data:
-                    cls_name = value["__class__"]
-                    gg = cls_name + '(' + '**value' + ')'
-                    obj = eval(gg)
+                for values in data.values():
+                    cls_name = values['__class__']
+                    selected_cls = classes[cls_name]
+                    self.new(selected_cls(**values))
         except FileNotFoundError:
             pass
