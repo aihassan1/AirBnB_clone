@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define FileStorage class that that make the projects persistent"""
+"""Define FileStorage class that make the projects persistent"""
 from json import load, dump
 from models.base_model import BaseModel
 
