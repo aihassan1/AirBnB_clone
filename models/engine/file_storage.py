@@ -40,6 +40,7 @@ class FileStorage:
 
         with open(FileStorage.__file_path, 'w', encoding="utf-8") as Jfile:
             dump(obj_dict_form, Jfile)
+
     # Complete
     def reload(self):
         """load __objects from __file_path"""
