@@ -2,7 +2,7 @@
 """Define FileStorage class that that make the projects persistent"""
 from json import load, dump
 from models.base_model import BaseModel
-from models.user import User
+# from models.user import User
 
 
 class FileStorage:
@@ -45,7 +45,7 @@ class FileStorage:
     # Complete
     def reload(self):
         """load __objects from __file_path"""
-        classes = {'BaseModel': BaseModel, 'User': User}
+        classes = {'BaseModel': BaseModel}
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as Jfile:
                 data = load(Jfile)
