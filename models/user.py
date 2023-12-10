@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ user class definition - inhirits from the baseclass """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class User(BaseModel):
