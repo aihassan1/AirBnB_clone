@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
 """Define FileStorage class that that make the projects persistent"""
 from json import load, dump
 from models.base_model import BaseModel
+
 
 class FileStorage:
     """
@@ -30,6 +30,7 @@ class FileStorage:
         K_format = f"{obj.__class__.__name__}.{obj.id}"
         FileStorage.__objects[K_format] = obj
 
+    # Complete
     def save(self):
         """save __objects in __file_path"""
         obj_dict_form = {}
@@ -39,7 +40,7 @@ class FileStorage:
 
         with open(FileStorage.__file_path, 'w', encoding="utf-8") as Jfile:
             dump(obj_dict_form, Jfile)
-
+    # Complete
     def reload(self):
         """load __objects from __file_path"""
         classes = {'BaseModel': BaseModel}
