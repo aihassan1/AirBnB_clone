@@ -3,7 +3,7 @@
 
 from models.base_model import BaseModel
 
-    
+
 class Place(BaseModel):
     """Represents a Amenity with name attributes"""
     city_id = ''
