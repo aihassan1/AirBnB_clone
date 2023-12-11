@@ -44,7 +44,6 @@ class TestAmenity(unittest.TestCase):
         self.assertTrue(hasattr(class_instance, "name"))
         self.assertEqual(type(class_instance.name), str)
 
-
     def test_user_to_dict(self):
         """Tests user to_dict"""
         self.assertEqual(type(self.class_instance.to_dict()), dict)
@@ -57,11 +56,13 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(self.class_instance.updated_at, new_user.updated_at)
         self.assertNotEqual(self.class_instance, new_user)
 
-    # def test_user_save(self):
-    #     """Tests user save"""
-    #     self.class_instance.save()
-    #     self.assertEqual(type(self.class_instance.updated_at).__name__, "datetime")
 
+"""
+    def test_user_save(self):
+        "Tests user save"
+        self.class_instance.save()
+    self.assertEqual(type(self.class_instance.updated_at).__name__, "datetime")
+"""
 
 if __name__ == '__main__':
     unittest.main()

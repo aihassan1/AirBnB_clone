@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from os import remove
 
+
 class TestFileStorage(unittest.TestCase):
     # You should creat file and delete it after each call of functions here
     # # # Stay Sharp # # #
@@ -23,7 +24,7 @@ class TestFileStorage(unittest.TestCase):
     def test_Instance(self):
         """test instance"""
         self.assertIsInstance(self.storage, FileStorage)
-    
+
     def test_FilePath(self):
         """test filepath attripute"""
         self.assertIsInstance("AirBnB_Storage.json", str)

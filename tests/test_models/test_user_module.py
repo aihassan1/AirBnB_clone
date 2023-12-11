@@ -78,11 +78,13 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user_instance.updated_at, new_user.updated_at)
         self.assertNotEqual(self.user_instance, new_user)
 
-    # def test_user_save(self):
-    #     """Tests user save"""
-    #     self.user_instance.save()
-    #     self.assertEqual(type(self.user_instance.updated_at).__name__, "datetime")
 
+"""
+    def test_user_save(self):
+        "Tests user save"
+        self.class_instance.save()
+    self.assertEqual(type(self.class_instance.updated_at).__name__, "datetime")
+"""
 
 if __name__ == '__main__':
     unittest.main()
