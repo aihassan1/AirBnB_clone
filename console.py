@@ -27,8 +27,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Quit from command line interpreter"""
-        print(arg)
-        print(arg)
         quit()
 
     def do_EOF(self, arg):
@@ -78,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 print(obj)
-    
+
     def do_destroy(self, line):
         """
         Deletes an instance based on the class name and id
@@ -122,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
                 if K.startswith(cls_name):
                     str_inst.append(ob.__str__())
             print(str_inst)
-        
+
 
         def do_update(self, line):
             """
@@ -161,27 +159,6 @@ class HBNBCommand(cmd.Cmd):
                     setattr(obj, att_name, att_value)
                     # self updated at date time
                     storage.save()
-
-    def emptyline(self):
-        """if empty line do nothing"""
-        # Hello I am doing nothing
-        pass
-
-    def do_create(self, line):
-        """
-        Creates a new instance of BaseModel
-        saves it (to the JSON file) and prints the id
-        """
-        line = self.parseline(line)
-        cls_name = line[0]
-        if cls_name is None:
-            print("** class name missing **")
-        elif cls_name not in HBNBCommand.bnb_cls:
-            print("** class doesn't exist **")
-        else:
-            obj = HBNBCommand.bnb_cls[cls_name]()
-            print(obj.id)
-            storage.save()
 
 
 if __name__ == '__main__':
