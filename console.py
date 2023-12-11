@@ -7,6 +7,7 @@ from models.user import User
 from models.amenity import Amenity
 from models.state import State
 from models.city import City
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,7 +19,8 @@ class HBNBCommand(cmd.Cmd):
         "User": User,
         "Amenity": Amenity,
         "State": State,
-        "City": City
+        "City": City,
+        "Review": Review
     }
 
     def do_quit(self, arg):
