@@ -10,6 +10,7 @@ from models.city import City
 from models.review import Review
 from models import storage
 from models.base_model import BaseModel
+from models.place import Place
 
 
 class HBNBCommand(cmd.Cmd):
@@ -22,7 +23,8 @@ class HBNBCommand(cmd.Cmd):
         "Amenity": Amenity,
         "State": State,
         "City": City,
-        "Review": Review
+        "Review": Review,
+        "Place": Place
     }
 
     def do_quit(self, arg):
@@ -121,13 +123,14 @@ class HBNBCommand(cmd.Cmd):
             for K, ob in storage.all().items():
                 if K.startswith(cls_name):
                     str_inst.append(ob.__str__())
-            return print(str_inst)
+            print(str_inst)
 
-    def do_update(self, line):
-        """
-        Updates an instance based on the class name and id by adding
-        or updating attribute (save the change into the JSON file).
-        """
+
+        def do_update(self, line):
+            """
+            Updates an instance based on the class name and id by adding
+            or updating attribute (save the change into the JSON file).
+            """
         args = self.parseline(line)
         cls_name = args[0]
         inst_id = args[1]
