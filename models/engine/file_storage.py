@@ -3,6 +3,7 @@
 from json import load, dump
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
 
 
 class FileStorage:
@@ -45,7 +46,7 @@ class FileStorage:
     # Complete
     def reload(self):
         """load __objects from __file_path"""
-        classes = {'BaseModel': BaseModel, 'User': User}
+        classes = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity}
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as Jfile:
                 data = load(Jfile)

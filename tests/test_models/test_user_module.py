@@ -8,6 +8,14 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """Class for testing the User class"""
 
+    def setUp(self):
+        """Sets up User for testing"""
+        self.user_instance = User()
+        self.user_instance.email = 'abcd@gmail.com'
+        self.user_instance.password = '123456789'
+        self.user_instance.first_name = 'Abdelrahman'
+        self.user_instance.last_name = 'Ibrahim'
+
     def test_inheritance(self):
         """Check if User inherits from BaseModel"""
         self.assertTrue(issubclass(User, BaseModel))
@@ -19,12 +27,11 @@ class TestUser(unittest.TestCase):
 
     def test_str_method(self):
         """Test if the __str__ method is implemented"""
-        user_instance = User()
-        expected_str = "[User] ({}) {}".format(user_instance.id,
-                                               user_instance.__dict__)
-        self.assertEqual(str(user_instance), expected_str)
+        expected_str = "[User] ({}) {}".format(self.user_instance.id,
+                                               self.user_instance.__dict__)
+        self.assertEqual(str(self.user_instance), expected_str)
 
-    def test_attribiutes_values(self):
+    def test_attributes_values(self):
         """
         Ensure that a User instance is created correctly
         , and its attributes are initialized to the default values.
@@ -48,6 +55,33 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user_instance.password, '123456789')
         self.assertEqual(user_instance.first_name, 'Abdelrahman')
         self.assertEqual(user_instance.last_name, 'Ibrahim')
+
+        self.assertTrue(hasattr(user_instance, "password"))
+        self.assertTrue(hasattr(user_instance, "email"))
+        self.assertTrue(hasattr(user_instance, "first_name"))
+        self.assertTrue(hasattr(user_instance, "last_name"))
+
+        self.assertEqual(type(user_instance.email), str)
+        self.assertEqual(type(user_instance.password), str)
+        self.assertEqual(type(user_instance.first_name), str)
+        self.assertEqual(type(user_instance.last_name), str)
+
+    def test_user_to_dict(self):
+        """Tests user to_dict"""
+        self.assertEqual(type(self.user_instance.to_dict()), dict)
+
+    def test_kwargs(self):
+        """Tests user kwargs"""
+        new_user = User(**self.user_instance.to_dict())
+        self.assertEqual(self.user_instance.id, new_user.id)
+        self.assertEqual(self.user_instance.created_at, new_user.created_at)
+        self.assertEqual(self.user_instance.updated_at, new_user.updated_at)
+        self.assertNotEqual(self.user_instance, new_user)
+
+    # def test_user_save(self):
+    #     """Tests user save"""
+    #     self.user_instance.save()
+    #     self.assertEqual(type(self.user_instance.updated_at).__name__, "datetime")
 
 
 if __name__ == '__main__':
