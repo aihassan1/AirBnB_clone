@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         """if empty line do nothing"""
         # Hello I am doing nothing
         pass
-
+    #Complete
     def do_create(self, line):
         """
             Creates a new instance of BaseModel
@@ -53,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
             obj = HBNBCommand.bnb_cls[cls_name]()
             print(obj.id)
             storage.save()
-
+    #Complete
     def do_show(self, line):
         """
             Prints the string representation
@@ -112,21 +112,20 @@ class HBNBCommand(cmd.Cmd):
         if cls_name is None:
             for K, ob in storage.all().items():
                 str_inst.append(ob.__str__())
-            print(str_inst)
+            return print(str_inst)
         elif cls_name not in HBNBCommand.bnb_cls:
-            print("** class doesn't exist **")
+            return print("** class doesn't exist **")
         else:
             for K, ob in storage.all().items():
                 if K.startswith(cls_name):
                     str_inst.append(ob.__str__())
-            print(str_inst)
+            return print(str_inst)
 
-
-        def do_update(self, line):
-            """
-            Updates an instance based on the class name and id by adding
-            or updating attribute (save the change into the JSON file).
-            """
+    def do_update(self, line):
+        """
+        Updates an instance based on the class name and id by adding
+        or updating attribute (save the change into the JSON file).
+        """
         args = self.parseline(line)
         cls_name = args[0]
         inst_id = args[1]
