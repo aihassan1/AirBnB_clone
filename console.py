@@ -5,13 +5,19 @@ from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
     """WELCOME TO MY CONSOLE"""
 
     prompt = "(hbnb) "
-    bnb_cls = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity}
+    bnb_cls = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "Amenity": Amenity,
+        "State": State
+    }
 
     def do_quit(self, arg):
         """Quit from command line interpreter"""

@@ -4,6 +4,7 @@ from json import load, dump
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
+from models.state import State
 
 
 class FileStorage:
@@ -46,7 +47,12 @@ class FileStorage:
     # Complete
     def reload(self):
         """load __objects from __file_path"""
-        classes = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity}
+        classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'Amenity': Amenity,
+            'State': State
+        }
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as Jfile:
                 data = load(Jfile)
