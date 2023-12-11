@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
 from models.state import State
+from models.city import City
 
 
 class FileStorage:
@@ -51,7 +52,8 @@ class FileStorage:
             'BaseModel': BaseModel,
             'User': User,
             'Amenity': Amenity,
-            'State': State
+            'State': State,
+            'City': City
         }
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as Jfile:
