@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define HBNBCommand that build -> command interpreter"""
-import cmd
+from cmd import Cmd
+from shlex import split
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -13,7 +14,7 @@ from models.base_model import BaseModel
 from models.place import Place
 
 
-class HBNBCommand(cmd.Cmd):
+class HBNBCommand(Cmd):
     """WELCOME TO MY CONSOLE"""
 
     prompt = "(hbnb) "
