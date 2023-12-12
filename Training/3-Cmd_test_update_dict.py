@@ -29,10 +29,10 @@ class HBNBCommand(Cmd):
         args[2] = args[2][start: end]
 
         #FUNCTION CLASS ID
-        cls_id = "#" + args[0] + "#" + args[2]
+        cls_id = args[0] + " " + args[2] + " "
 
         for att, val in args[3].items():
-            update_formate = cls_id + "#" + str(att) + "#" + '\"'+ str(val) +'\"'
+            update_formate = cls_id + str(att) + " " + '\"' + str(val) +'\"'
             # You can see WooooOOOOOOOOOooooW Format here
             print(f"WOOOOW format: {update_formate}")
 
