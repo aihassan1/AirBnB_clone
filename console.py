@@ -70,16 +70,16 @@ class HBNBCommand(Cmd):
         inst_id = args[1]
 
         if cls_name is None:
-            return print("** class name missing **")
+            print("** class name missing **")
         elif cls_name not in HBNBCommand.bnb_cls:
-            return print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif inst_id is None or inst_id == "":
-            return print("** instance id missing **")
+            print("** instance id missing **")
         else:
             inst_key = f"{cls_name}.{inst_id}"
             obj = storage.all().get(inst_key)
             if obj is None:
-                return print("** no instance found **")
+                print("** no instance found **")
             else:
                 print(obj)
 
