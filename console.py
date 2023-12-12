@@ -70,16 +70,16 @@ class HBNBCommand(Cmd):
         inst_id = args[1]
 
         if cls_name is None:
-            print("** class name missing **")
+            return print("** class name missing **")
         elif cls_name not in HBNBCommand.bnb_cls:
-            print("** class doesn't exist **")
-        elif inst_id is None or id == "":
-            print("** instance id missing **")
+            return print("** class doesn't exist **")
+        elif inst_id is None or inst_id == "":
+            return print("** instance id missing **")
         else:
             inst_key = f"{cls_name}.{inst_id}"
             obj = storage.all().get(inst_key)
             if obj is None:
-                print("** no instance found **")
+                return print("** no instance found **")
             else:
                 print(obj)
 
@@ -96,7 +96,7 @@ class HBNBCommand(Cmd):
             print("** class name missing **")
         elif cls_name not in HBNBCommand.bnb_cls:
             print("** class doesn't exist **")
-        elif inst_id is None or id == "":
+        elif inst_id is None or inst_id == "":
             print("** instance id missing **")
         else:
             inst_key = f"{cls_name}.{inst_id}"
@@ -145,7 +145,7 @@ class HBNBCommand(Cmd):
             print("** class name missing **")
         if args[0] not in HBNBCommand.bnb_cls:
             print("** class doesn't exist **")
-        elif N_args < 1:
+        elif N_args < 2:
             print("** instance id missing **")
         else:
             inst_key = f"{args[0]}.{args[1]}"
@@ -153,12 +153,13 @@ class HBNBCommand(Cmd):
 
             if obj is None:
                 print("** no instance found **")
-            elif N_args < 2:
-                print("** attribute name missing **")
             elif N_args < 3:
+                print("** attribute name missing **")
+            elif N_args < 4:
                 print("** value missing **")
             else:
                 setattr(obj, args[2], args[3])
+                setattr(self, 'updated_at', datetime.now())
                 storage.save()
 
 
