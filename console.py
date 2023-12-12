@@ -2,6 +2,7 @@
 """Define HBNBCommand that build -> command interpreter"""
 from cmd import Cmd
 from shlex import split
+from datetime import datetime
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -140,11 +141,11 @@ class HBNBCommand(Cmd):
         # args[3] = new value
         N_args = len(args)
 
-        if N_args is 0:
+        if N_args == 0:
             print("** class name missing **")
         if args[0] not in HBNBCommand.bnb_cls:
             print("** class doesn't exist **")
-        elif N_args is 1:
+        elif N_args < 1:
             print("** instance id missing **")
         else:
             inst_key = f"{args[0]}.{args[1]}"
@@ -152,13 +153,13 @@ class HBNBCommand(Cmd):
 
             if obj is None:
                 print("** no instance found **")
-            elif N_args is 2:
+            elif N_args < 2:
                 print("** attribute name missing **")
-            elif N_args is 3:
+            elif N_args < 3:
                 print("** value missing **")
             else:
                 setattr(obj, args[2], args[3])
-                # self updated at date time
+                setattr(self, "updated_time", datetime.now())
                 storage.save()
 
 
