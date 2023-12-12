@@ -144,26 +144,20 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             inst_key = f"{cls_name}.{inst_id}"
-            obj = storage.all()[inst_key]
+            obj = storage.all().get(inst_key)
             att_name = args[2]
             att_value = args[3]
 
             if obj is None:
                 print("** no instance found **")
+            elif att_name is None:
+                print("** attribute name missing **")
+            elif att_value is None:
+                print("** value missing **")
             else:
-                inst_key = f"{cls_name}.{inst_id}"
-                obj = storage.all().get(inst_key)
-
-                if obj is None:
-                    print("** no instance found **")
-                elif att_name is None:
-                    print("** attribute name missing **")
-                elif att_value is None:
-                    print("** value missing **")
-                else:
-                    setattr(obj, att_name, att_value)
-                    # self updated at date time
-                    storage.save()
+                setattr(obj, att_name, att_value)
+                # self updated at date time
+                storage.save()
 
 
 if __name__ == '__main__':

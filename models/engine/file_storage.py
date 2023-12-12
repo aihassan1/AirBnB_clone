@@ -16,7 +16,7 @@ class FileStorage:
 
         Attributes:
             __file_path (string): path to the JSON file
-            __objects (dictionary): empty - storeobjects by <class name>.id
+            __objects (dictionary): empty - store objects by <class name>.id
 
         Methods:
         all - new - save - reload
