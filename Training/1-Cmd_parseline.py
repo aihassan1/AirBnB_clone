@@ -5,24 +5,15 @@ class my_console(Cmd):
     prompt = "### "
 
     def do_ok(self, line):
-        # str
-        print(type(line))
-        # tuple
-        print(type(self.parseline(line)))
+        print(type(line)) # str
+        print(type(self.parseline(line))) # tuple
 
         args = self.parseline(line)
-        print(args)
         """
-        arg1 = args[0]
-        arg2 = args[1]
-        arg3 = args[2]
-        arg4 = args[3]
-        print(arg1, arg2, arg3, arg4)
+        parse input intor 3 elements stored in tuple
         """
-        arg1 = args[0]
-        arg2 = args[1]
-        arg3 = args[2]
-        print (arg1, arg2, arg3)
+        print(args) # print tuple
+        print(f"(Command): {args[0]}\n(Remainder): {args[1]}\n(Input): {args[2]}")
 
     def do_gg(self, line):
         args = split(line)

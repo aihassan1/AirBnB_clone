@@ -133,30 +133,31 @@ class HBNBCommand(Cmd):
         Updates an instance based on the class name and id by adding
         or updating attribute (save the change into the JSON file).
         """
-        args = self.parseline(line)
-        cls_name = args[0]
-        inst_id = args[1]
+        args = split(line)
+        # args[0] = class name
+        # args[1] = id
+        # args[2] = Attribute
+        # args[3] = new value
+        N_args = len(args)
 
-        if cls_name is None:
+        if N_args is 0:
             print("** class name missing **")
-        elif cls_name not in HBNBCommand.bnb_cls:
+        if args[0] not in HBNBCommand.bnb_cls:
             print("** class doesn't exist **")
-        elif inst_id is None or id == "":
+        elif N_args is 1:
             print("** instance id missing **")
         else:
-            inst_key = f"{cls_name}.{inst_id}"
+            inst_key = f"{args[0]}.{args[1]}"
             obj = storage.all().get(inst_key)
-            att_name = args[2]
-            att_value = args[3]
 
             if obj is None:
                 print("** no instance found **")
-            elif att_name is None:
+            elif N_args is 2:
                 print("** attribute name missing **")
-            elif att_value is None:
+            elif N_args is 3:
                 print("** value missing **")
             else:
-                setattr(obj, att_name, att_value)
+                setattr(obj, args[2], args[3])
                 # self updated at date time
                 storage.save()
 
