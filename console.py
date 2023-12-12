@@ -159,7 +159,7 @@ class HBNBCommand(Cmd):
                 print("** value missing **")
             else:
                 setattr(obj, args[2], args[3])
-                setattr(self, 'updated_at', datetime.now())
+                setattr(obj, 'updated_at', datetime.now())
                 storage.save()
 
 
