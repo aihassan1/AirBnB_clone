@@ -101,8 +101,6 @@ class TestPlace(unittest.TestCase):
         """Tests place __str__"""
         self.assertEqual(type(self.place.__str__()), str)
 
-
-
     def test_place_to_dict(self):
         """Tests place to_dict"""
         self.assertEqual(type(self.place.to_dict()), dict)
@@ -113,4 +111,3 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(type(new_place).__name__, "Place")
         self.assertTrue(hasattr(new_place, "name"))
         self.assertEqual(new_place.name, "New Place")
-
