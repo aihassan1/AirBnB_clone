@@ -3,6 +3,7 @@
 from cmd import Cmd
 from shlex import split
 from datetime import datetime
+import re
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -28,6 +29,31 @@ class HBNBCommand(Cmd):
         "Review": Review,
         "Place": Place
     }
+
+    def default(self, line):
+        """Default function"""
+        methods = {
+            "create": self.do_create,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "all": self.do_all,
+            "update": self.do_update,
+            }
+        pieces = re.split(r'[.(,) ]', line)
+        arg_list = pieces[2:-1]
+        NewLine = ""
+        for arg in arg_list:
+            if arg == "":
+                NewLine = NewLine + " "
+            else:
+                NewLine = NewLine + arg
+        if NewLine == " ":
+            NewLine = pieces[0]
+        else:
+            NewLine = pieces[0] + " " + NewLine
+        fun_name = pieces[1]
+        Cmd_fun = methods[fun_name]
+        Cmd_fun(NewLine)
 
     def do_quit(self, arg):
         """Quit from command line interpreter"""
