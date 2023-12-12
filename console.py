@@ -38,6 +38,7 @@ class HBNBCommand(Cmd):
             "destroy": self.do_destroy,
             "all": self.do_all,
             "update": self.do_update,
+            "count": self.do_count
             }
         pieces = re.split(r'[.(,) ]', line)
         arg_list = pieces[2:-1]
@@ -154,6 +155,15 @@ class HBNBCommand(Cmd):
                 if K.startswith(cls_name):
                     str_inst.append(ob.__str__())
             print(str_inst)
+
+    def do_count(self, line):
+        """retrieve the number of instances of a class"""
+        objects = storage.all().values()
+        n = 0
+        for value in objects:
+            if value.__class__.__name__ == line:
+                n = n + 1
+        print(n)
 
     def do_update(self, line):
         """
