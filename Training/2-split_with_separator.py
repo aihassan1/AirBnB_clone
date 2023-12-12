@@ -1,6 +1,6 @@
 import re
 
-x = "class.function()"
+x = "class.function(38f22813-2753-4d42-b37c-57a17f1e4f88), {'first_name': 'John', 'age' : 89}"
 y = re.split(r"[.(,) ]", x)
 print(f"split list:-->{y}")
 

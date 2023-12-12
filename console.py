@@ -40,6 +40,10 @@ class HBNBCommand(Cmd):
             "update": self.do_update,
             "count": self.do_count
             }
+        flag = line.find('{')
+        if flag != -1:
+            self.update_dict(line)
+
         pieces = re.split(r'[.(,) ]', line)
         arg_list = pieces[2:-1]
         NewLine = ""
@@ -196,6 +200,33 @@ class HBNBCommand(Cmd):
             else:
                 setattr(obj, args[2], args[3])
                 storage.save()
+
+    # THE GOAL IS 
+    ### CONVERT FORMAT FROM <<CLASS.FUNCTION(ID, DICT)
+    ### TO do_update() FORMAT <<CLASS ID SINGLE_ATT SINGLE_VALUE
+    def update_dict(self, line):
+        """convert line to do_update form"""
+        args = re.split(r"[.()]", line)
+
+        # Extract pure dictionary from list
+        start = args[2].find('{')
+        end = args[2].find('}') + 1
+        args[3] = args[2][start: end]
+        args[3] = dict(eval(args[3]))
+
+        # Extract pure id from args
+        start = args[2].find('"') + 1
+        end = args[2][1:].find('"')
+        args[2] = args[2][start: end]
+
+        #FUNCTION CLASS ID
+        cls_id = args[0] + " " + args[2] + " "
+
+        for att, val in args[3].items():
+            update_formate = cls_id + str(att) + " " + str(val)
+            # You can see WooooOOOOOOOOOooooW Format here
+            # print(f"WOOOOW format: {update_formate}")
+            self.do_update(update_formate)
 
 
 if __name__ == '__main__':

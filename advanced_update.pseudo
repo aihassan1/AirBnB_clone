@@ -1,0 +1,16 @@
+forms of update
+1----> f cls id att val
+2----> cls.f(id, att, val)
+3----> cls.f(id, dict)
+
+dfault():
+    if 3
+        update_dict(line)
+    Execute Block #2
+
+update_dict():
+    args = split each part
+    f_cls_id = args[1] + " " + args[0] + " " + args[2] + " "
+    for attatt, val in args[3]
+        update_format = f_cls_id + att + " " + val
+        do_update(update_format)
