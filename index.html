@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello, Bootstrap!</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
 
-    p {
-      font-family: Georgia, 'Times New Roman';
-      font-size: xxx-large; /* Increased font size for the question */
-      font-weight: bold;
-      text-align: center; /* Center-align text within the <p> element */
-    }
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
 
-    a {
-      display: inline-block; /* Display links in the same line */
-      font-size: xx-large; /* Increased font size for the answer options */
-      margin: 12px; /* Add space around the links */
-    }
-  </style>
-  <title>GitHub</title>
-</head>
-<body>
-  <p>
-    would you like to see something beautiful?
-    <br />
-    <a href="https://www.instagram.com/mariamhussain5800/">Yes</a>
-    <a href="ifno.html">No</a>
-  </p>
-</body>
+      p {
+        font-family: Georgia, "Times New Roman";
+        font-size: xxx-large; /* Increased font size for the question */
+        font-weight: bold;
+        text-align: center; /* Center-align text within the <p> element */
+      }
+
+      a {
+        display: inline-block; /* Display links in the same line */
+        font-size: xx-large; /* Increased font size for the answer options */
+        margin: 5px; /* Add space around the links */
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      would you like to see something beautiful?
+      <br />
+      <a href="https://www.instagram.com/mariamhussain5800/"
+        ><button type="button" class="btn btn-primary btn-lg">Yes</button></a
+      >
+
+      <a href="ifno.html">
+        <button type="button" class="btn btn-danger btn-lg">No</button></a
+      >
+    </p>
+  </body>
 </html>
