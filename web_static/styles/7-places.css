@@ -1,0 +1,112 @@
+.places {
+  display: block;
+  justify-content: start;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+.places h1 {
+  display: flex;
+  justify-content: start;
+  font-size: 30px;
+  justify-content: start;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+.places h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
+}
+
+.places article {
+  display: inline-block;
+  width: 390px;
+  height: 390px;
+  padding: 20px;
+  margin: 20px;
+  border: solid 1px #ff5a5f;
+  border-radius: 4px;
+  position: relative;
+}
+
+.price_by_night {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff5a5f;
+  border: solid 4px #ff5a5f;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Use 50% for a perfect circle */
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  padding: 5px;
+}
+
+.information {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-top: 55px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.max_guest {
+  margin-top: 10px;
+  width: 100px;
+  height: 80px;
+  background-image: url("/web_static/images/gustes.png");
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.max_guest p {
+  margin-top: 50px;
+}
+
+.number_rooms {
+  margin-top: 10px;
+  width: 100px;
+  height: 80px;
+  background-image: url(/web_static/images/rooms.png);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.number_rooms p {
+  margin-top: 50px;
+}
+
+.number_bathrooms {
+  margin-top: 10px;
+  width: 100px;
+  height: 80px;
+  background-image: url(/web_static/images/icon_bath.png);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.number_bathrooms p {
+  margin-top: 50px;
+}
+
+.user {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 0px;
+}
+
+.description {
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  color: black;
+}
